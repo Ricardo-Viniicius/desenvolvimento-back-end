@@ -29,7 +29,6 @@ Durante esta aula prática, aprofundei os seguintes conceitos:
 ### 2. Validações e Status Codes HTTP
 - `200 OK`: Operação realizada com sucesso.
 - `201 Created`: Novo recurso criado com sucesso.
-- `400 Bad Request`: Requisição inválida (ex: ausência de campos obrigatórios como o nome do pet).
 - `404 Not Found`: Registro ou endereço de CEP não localizado.
 
 ### 3. Integração com APIs Externas (Assincronismo)
@@ -46,45 +45,38 @@ Durante esta aula prática, aprofundei os seguintes conceitos:
 | :--- | :--- | :--- |
 | `GET` | `/pets` | Retorna a lista de pets cadastrados. |
 | `POST` | `/pets` | Cadastra um novo pet (requer campo `nome` no corpo JSON). |
-| `PUT` | `/pets/:id` | Atualiza a idade do pet correspondente ao ID. |
+| `PUT` | `/pets/:id` | Atualiza um ou mais campos (`nome`, `raca` e/ou `idade`) do pet. |
 | `DELETE`| `/pets/:id` | Remove o pet do sistema correspondente ao ID. |
 
-### 📍 Endereço e Frete (Integração ViaCEP)
+### 📍 Cálculo de Frete (Integração ViaCEP)
 
 | Método | Rota | Descrição |
 | :--- | :--- | :--- |
-| `GET` | `/endereco/:cep` | Busca o endereço completo a partir do CEP informado. |
 | `GET` | `/frete/:cep` | Calcula o frete com base na cidade do CEP informado. |
 
 ---
 
 ## ⚙️ Como Executar o Projeto Localmente
 
-1. **Clone o repositório:**
+1. **Inicie o backend** em um terminal:
    ```bash
-   git clone https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git
-   ```
-
-2. **Acesse a pasta do projeto:**
-   ```bash
-   cd "Desafio API"
-   ```
-
-3. **Instale as dependências:**
-   ```bash
+   cd backend
    npm install
+   npx tsx server.ts
    ```
 
-4. **Inicie o servidor de desenvolvimento:**
+2. **Inicie o frontend** em outro terminal:
    ```bash
-   npx tsx src/index.ts
+   cd frontend
+   npm install
+   npm run dev
    ```
-   *(ou `npm run dev`, caso tenha configurado no seu package.json)*
 
-5. **Exemplos de acesso:**
+3. **Exemplos de acesso à API:**
    - Listar Pets: `http://localhost:3000/pets`
-   - Buscar CEP: `http://localhost:3000/endereco/50000000` *(Substitua pelo CEP desejado)*
    - Calcular Frete: `http://localhost:3000/frete/54310000`
+
+Os dados dos pets ficam armazenados em memória e são apagados quando o servidor é reiniciado. A rota de cadastro ainda não valida os campos recebidos.
 
 ---
 
