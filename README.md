@@ -14,6 +14,10 @@ Nesta segunda etapa, evoluí a aplicação para construir uma API REST completa 
 - **Fetch API / Async & Await**: Utilizado para consumo de serviços web externos.
 - **tsx**: Executor TypeScript de alta performance para o ambiente de desenvolvimento.
 
+## 🖥️ Preview da aplicação
+
+![Preview da aplicação Grau Petshop](./preview.png)
+
 ---
 
 ## 🧠 Conceitos Aprendidos e Aplicados
